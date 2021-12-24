@@ -11,6 +11,23 @@ public class Homework3 {
         swap(arr1,1,4);
         swap(arr2,0,2);
     }
+    public static void main(String[] args) {
+        Apple apl = new Apple();
+        Orange orange = new Orange();
+
+        Box<Apple> boxApple = new Box<Apple>();
+        Box<Orange> boxOrange = new Box<Orange>();
+        boxApple.addFruit(apl);
+        boxApple.addFruit(apl);
+        boxApple.addFruit(apl);
+        boxOrange.addFruit(orange);
+        boxOrange.addFruit(orange);
+        boxOrange.addFruit(orange);
+        boxOrange.addFruit(orange);
+        boxOrange.addFruit(orange);
+
+        boxApple.compare(boxOrange);
+    }
 
     public abstract class Fruit {
         private String name="Fruit";
@@ -43,25 +60,16 @@ public class Homework3 {
             if(content.size()==0) return 0;
             return content.size()*T.WEIGHT;
         }
-
-        public List<T> getContent() {
-            return content;
-        }
-
-        public void setContent(List<T> content) {
-            this.content = content;
-        }
-
-        @java.lang.Override
-        public java.lang.String toString() {
-            return "Box{" +
-                    "content=" + content +
-                    '}';
-        }
+        
         public static void main (String[] args){
             Box box1 = new Box();
             Box box2 = new Box();
             System.out.println(box1.compareTo(box2));
+        }
+        public boolean compare(Box box) {
+            if (currentWeight == box.currentWeight)
+                return true;
+            return false;
         }
     }
 }
